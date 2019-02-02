@@ -1,0 +1,36 @@
+version: '3'
+services:
+  mongodb:
+    image: bitnami/mongodb
+    container_name: mongodb
+    ports:
+      - 27018:27017
+    environment:
+      - MONGODB_USERNAME=root
+      - MONGODB_PASSWORD=root
+      - MONGODB_DATABASE=send-message
+      - MONGODB_ROOT_PASSWORD=root
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile-server
+    command: npm start
+    depends_on:
+      - mongodb
+    ports:
+      - 8000:8000
+    volumes:
+      - ./server/:/root/app/server
+      - mongo:/data/db
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile-client
+    command: npm start
+    ports:
+      - 3000:3000
+    volumes:
+      - ./client:/root/app/client
+      - /root/app/client/node_modules
+volumes:
+  mongo:

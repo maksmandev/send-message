@@ -1,0 +1,6 @@
+FROM node:8
+WORKDIR /root/app/client
+COPY client/package*.json ./
+RUN npm install
+COPY client ./
+CMD npm run build

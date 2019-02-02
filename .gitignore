@@ -1,0 +1,38 @@
+### Node ###
+
+# Logs
+logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional npm cache directory
+.npm
+
+# Dependency directories
+node_modules
+
+
+# Optional eslint cache
+.eslintcache
+
+# dotenv environment variables file(s)
+# .env
+#.env.*
+
+#Build generated
+/dist/
+build/
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### WebStorm/IntelliJ ###
+/.idea
+modules.xml
+*.ipr
+*.iml
